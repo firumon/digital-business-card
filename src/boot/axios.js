@@ -7,18 +7,15 @@ import axios from 'axios'
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: 'https://api.example.com' })
-
-export default defineBoot(({ app }) => {
-  // for use inside Vue files (Options API) through this.$axios and this.$api
-
-  app.config.globalProperties.$axios = axios
-  // ^ ^ ^ this will allow you to use this.$axios (for Vue Options API form)
-  //       so you won't necessarily have to import axios in each vue file
-
-  app.config.globalProperties.$api = api
-  // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
-  //       so you can easily perform requests against your app's API
+const apiInstance = axios.create({
+  baseURL: [location.origin,location.pathname.split("/")[1],"api"].join("/"),
+  headers: {'X-CSRF-TOKEN': document.getElementsByName('csrf-token')[0]?.content },
+  method: "post",
 })
 
+export default defineBoot(({ app }) => {
+  app.config.globalProperties.$api = apiInstance
+})
+
+function api(path,params){ return new Promise((resolve, reject) => apiInstance(path,{ params }).then(({ data }) => resolve(data)).catch(reject)) }
 export { api }

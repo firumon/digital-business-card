@@ -13,15 +13,19 @@
     "postinstall": "quasar prepare"
   },
   "dependencies": {
+    "@quasar/extras": "^1.17.0",
     "axios": "^1.2.1",
+    "html2pdf.js": "^0.12.1",
+    "lodash": "^4.17.21",
     "pinia": "^2.0.11",
-    "@quasar/extras": "^1.16.4",
-    "quasar": "^2.16.0",
-    "vue": "^3.4.18",
-    "vue-router": "^4.0.0"
+    "qrcode.vue": "^3.6.0",
+    "quasar": "^2.18.2",
+    "vcards-js": "^2.10.0",
+    "vue": "^3.5.20",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@quasar/app-vite": "^2.0.0",
+    "@quasar/app-vite": "^2.3.0",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.14"
   },
