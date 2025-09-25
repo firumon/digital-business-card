@@ -1,0 +1,21 @@
+{
+    "name": "firumon/digital-business-card",
+    "type": "laravel-package",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.31"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Firumon\\DigitalBusinessCard\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Firose Hussain",
+            "email": "github@firumon.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,1 @@
+import{v as o}from"./use-router-link-XJvBbrSn.js";import{J as r,H as s,N as a,x as c}from"./index-ClgIUJHk.js";function m(){let e;const i=c();function n(){e=void 0}return r(n),s(n),{removeTick:n,registerTick(t){e=t,a(()=>{e===t&&(o(i)===!1&&e(),e=void 0)})}}}export{m as u};

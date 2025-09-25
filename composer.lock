@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e08334651ce0b12e409af9e125ee397d",
+    "content-hash": "b1f6817d8d271039d00ac1d176710c29",
     "packages": [
         {
             "name": "brick/math",
@@ -509,6 +509,38 @@
                 }
             ],
             "time": "2024-12-27T00:36:43+00:00"
+        },
+        {
+            "name": "firumon/digital-business-card",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/firumon/digital-business-card",
+                "reference": "603f4d869e52153c39296ed141f77f7f3ce639a8"
+            },
+            "require": {
+                "laravel/framework": "^11.31",
+                "php": "^8.2"
+            },
+            "type": "laravel-package",
+            "autoload": {
+                "psr-4": {
+                    "Firumon\\DigitalBusinessCard\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Firose Hussain",
+                    "email": "github@firumon.com"
+                }
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "fruitcake/php-cors",
@@ -9015,7 +9047,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "firumon/digital-business-card": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

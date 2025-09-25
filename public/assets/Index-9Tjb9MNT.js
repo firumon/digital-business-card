@@ -1,0 +1,1 @@
+import{Q as o}from"./QPage-uDd7aByb.js";import{_ as r}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{o as t,a,w as s,e as f}from"./index-7HjL0rFh.js";import"./render-BABpcrBe.js";const n={};function c(m,e){return t(),a(o,{class:"flex flex-center"},{default:s(()=>e[0]||(e[0]=[f("Barakat Group of Companies")])),_:1})}const l=r(n,[["render",c]]);export{l as default};

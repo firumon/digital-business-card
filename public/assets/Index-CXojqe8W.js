@@ -1,0 +1,1 @@
+import{Q as t}from"./QPage-DzXdwR8F.js";import{_ as r}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{o,a,w as s,e as n}from"./index-C-S14guI.js";import"./render-Bqh4jmmr.js";const c={};function f(m,e){return o(),a(t,{class:"flex flex-center"},{default:s(()=>e[0]||(e[0]=[n(" The Great Company ")])),_:1})}const l=r(c,[["render",f]]);export{l as default};
