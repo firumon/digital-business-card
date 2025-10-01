@@ -11,6 +11,7 @@ class CompanyProperty extends Model
 {
     protected $guarded = [];
     protected $hidden = ['created_at','updated_at'];
+    protected $touches = ['Company'];
 
     public function Layout(): BelongsTo { return $this->belongsTo(Layout::class); }
     public function Company(): BelongsTo { return $this->belongsTo(Company::class); }

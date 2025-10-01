@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>@yield('title')</title>
     @yield('base')
     @yield('vite')
     <meta charset="utf-8">
@@ -15,11 +16,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="icon" type="image/ico" href="icons/logo-flight.svg">
+    @stack('link')
 
+    @stack('script')
     <script src="{{ env('APP_URL') }}/script/VCardProperty.js"></script>
     @auth()<script src="{{ env('APP_URL') }}/script/user/{{\Illuminate\Support\Facades\Auth::id()}}/data.js"></script>
-    @endauth
-<script>@stack('script')</script>
+    @endauth<script>@stack('script_content')</script>
 </head>
 <body>
 <div id="q-app"></div>@stack('append_body')

@@ -6,7 +6,7 @@
 @section('title','xnture :: Digital Business Card')
 @push('meta')<meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
-@push('script')const LOGIN_URL = '{{ route('login') }}';@endpush
+@push('script_content')const LOGIN_URL = '{{ route('login') }}';@endpush
 @push('append_body')
     <script type="module" src="/.quasar/dev-spa/client-entry.js"></script>
 @endpush

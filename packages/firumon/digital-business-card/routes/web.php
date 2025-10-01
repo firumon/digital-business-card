@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Firumon\DigitalBusinessCard\Controllers\RouteController;
-use Firumon\DigitalBusinessCard\Controllers\IndividualController;
-use Firumon\DigitalBusinessCard\Controllers\SettingController;
 use Firumon\DigitalBusinessCard\Controllers\AuthController;
 use \Firumon\DigitalBusinessCard\Middleware\HasRole;
 
@@ -61,9 +58,9 @@ Route::middleware(['web'])->group(function(){
             });
 
         });
-        Route::get('{item}',[RouteController::class,'company_admin'])->whereIn('item',['individuals','settings']);
-        Route::post('individual',[IndividualController::class,'individual'])->name('company_admin');
-        Route::post('setting',[SettingController::class,'setting']);
+//        Route::get('{item}',[RouteController::class,'company_admin'])->whereIn('item',['individuals','settings']);
+//        Route::post('individual',[IndividualController::class,'individual'])->name('company_admin');
+//        Route::post('setting',[SettingController::class,'setting']);
         Route::get('logout',[AuthController::class,'logout'])->name('logout');
         Route::get('/script/user/{user_id}/data.js',[AuthController::class,'user']);
         Route::group([
@@ -116,13 +113,21 @@ Route::middleware(['web'])->group(function(){
                 ],function(){
                     Route::post('/','all');
                 });
-
             });
         });
     });
-    Route::get('/',[RouteController::class,'app_view_company']);
+    Route::group([
+        'prefix' => 'script',
+        'controller' => \Firumon\DigitalBusinessCard\Controllers\ScriptController::class,
+    ],function(){
+        Route::get('VCardProperty.js','VCardProperty');
+        Route::get('{code}/{time}/Layout.js','Layout');
+        Route::get('{code}/{time}/Company.js','Company');
+        Route::get('{code}/{time}/Individual.js','Individual');
+        Route::get('{time}/Property.js','Property');
+    });
     Route::view('/login','dbc::login')->name('login');
     Route::post('/login',[AuthController::class,'login']);
-    Route::get('/{code}',[RouteController::class,'app_view_individual']);
-    Route::get('/script/VCardProperty.js',function(){ return response(\Firumon\DigitalBusinessCard\Models\VCardProperty::jsData(),200,["content-type" => "text/javascript"]); });
+    Route::get('/{code}',[\Firumon\DigitalBusinessCard\Controllers\PublicController::class,'app']);
+//    Route::get('/',[RouteController::class,'app_view_company']);
 });

@@ -10,6 +10,7 @@ class Property extends Model
 {
     protected $guarded = [];
     protected $hidden = ['created_at','updated_at'];
+    protected $casts = ['params' => 'json'];
 
     public function VCardProperty(): BelongsTo{ return $this->belongsTo(VCardProperty::class); }
     public function Layouts(): HasMany { return $this->hasMany(LayoutProperty::class,'property_name','name'); }
