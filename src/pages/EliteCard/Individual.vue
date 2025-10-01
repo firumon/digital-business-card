@@ -9,16 +9,16 @@
 </template>
 
 <script setup>
-import CompanyLogo from "components/EliteCard/CompanyLogo.vue";
-import Profile from "components/EliteCard/Profile.vue";
-import Download from "components/EliteCard/Download.vue";
-import CompanyButtons from "components/EliteCard/CompanyButtons.vue";
+import CompanyLogo from "components/Cards/EliteCard/CompanyLogo.vue";
+import Profile from "components/Cards/EliteCard/Profile.vue";
+import Download from "components/Cards/EliteCard/Download.vue";
+import CompanyButtons from "components/Cards/EliteCard/CompanyButtons.vue";
 
 import {computed} from "vue";
 import { getCssVar,colors } from "quasar";
 
 import {get} from "lodash";
-import Contacts from "components/EliteCard/Contacts.vue";
+import Contacts from "components/Cards/EliteCard/Contacts.vue";
 import {useDataStore} from "stores/data.js";
 const { hexToRgb } = colors
 

@@ -21,8 +21,8 @@
         </q-item>
       </q-list>
     </q-card>
-    <q-dialog v-model="createMode"><AddProperty :layout_id="layoutId" /></q-dialog>
-    <q-dialog v-model="updateMode"><EditProperty :layout_id="layoutId" :name="updateProp" @close="updateProp = null" /></q-dialog>
+    <q-dialog v-model="createMode" persistent><AddProperty :layout_id="layoutId" /></q-dialog>
+    <q-dialog v-model="updateMode" persistent><EditProperty :layout_id="layoutId" :name="updateProp" @close="updateProp = null" /></q-dialog>
   </q-page>
 </template>
 

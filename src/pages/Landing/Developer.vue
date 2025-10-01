@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page class="flex flex-center">
     DEVELOPER
   </q-page>
 </template>

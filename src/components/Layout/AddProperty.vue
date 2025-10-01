@@ -3,7 +3,7 @@
     <q-card-section class="text-bold bg-grey-2 flex items-center">Add New Layout Property <q-space /><q-btn icon="close" color="negative" v-close-popup flat dense /></q-card-section>
     <q-card-section class="q-gutter-y-xs">
       <q-select v-model="Property.property_name" outlined label="Select Property" clearable :options="properties_options" />
-      <div v-if="property_details"><q-chip outline size="sm" square v-for="(val,name) in property_details" :label="name + ': ' + val" /><q-btn href="https://www.rfc-editor.org/rfc/rfc2426" size="sm" outline label="rfc2426" dense padding="none sm" target="_blank" /></div>
+      <div v-if="property_details"><q-chip outline size="sm" square v-for="(val,name) in property_details" :label="name + ': ' + (typeof val === 'object' ? JSON.stringify(val) : val)" /><q-btn href="https://www.rfc-editor.org/rfc/rfc2426" size="sm" outline label="rfc2426" dense padding="none sm" target="_blank" /></div>
       <div v-if="property_details && Params.length" class="row q-col-gutter-xs">
         <div class="col" v-for="param in Params"><q-input outlined :label="param" v-model="Property.params[param]" /></div>
       </div>

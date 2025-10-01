@@ -52,7 +52,7 @@ function SaveProperty(){
   loading.value = true
   let params = {};
   forEach(Params.value,(value,param) => value ? (params[param] = value) : null)
-  let data = Object.assign({},Property, { params:JSON.stringify(params) })
+  let data = Object.assign({},Property, { params })
   propertyStore.addNewProperty(data).then(() => loading.value = false).then(reset)
 }
 function reset(){

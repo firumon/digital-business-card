@@ -24,15 +24,12 @@ const app_routes = {
   individual_logins: { name:'individual_logins', path: 'Individual/Logins', component: () => import('pages/Individual/Logins.vue') },
   individual_login_manage: { name:'individual_login_manage', path: 'Individual/Logins/:user_id/Manage', component: () => import('pages/Individual/LoginManage.vue'), props: true },
 }
-function layoutRoute(){
-  if(typeof __DATA === "undefined" || !__DATA.hasOwnProperty('company') || !__DATA.company.hasOwnProperty('layout')) return undefined
-  const name = __DATA.company.layout
+function publicRoute(){
   return {
     path: '/',
-    component: () => import(`layouts/${name}.vue`),
+    component: () => import('layouts/Public.vue'),
     children: [
-      { path: '', name:'index', component: () => import(`pages/${name}/Index.vue`) },
-      { path: ':id', name:'individual', component: () => import(`pages/${name}/Individual.vue`), props:true }
+      { path: ':individual_code', name:'index', component: () => import('pages/Public/Index.vue') },
     ]
   }
 }
@@ -118,7 +115,7 @@ function locationWiseRoute(){
     case 'Reseller': return resellerRoute();
     case 'Manager': return managerRoute();
     case 'Individual': return IndividualRoute();
-    default: return layoutRoute();
+    default: return publicRoute();
   }
 }
 

@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import {generate} from "assets/vcard.js";
+import {generate} from "assets/vCardsJSHelper.js";
 import {ref} from "vue";
 import {openURL} from "quasar";
 
