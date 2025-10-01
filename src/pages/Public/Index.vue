@@ -1,19 +1,20 @@
 <template>
   <q-page>
     <component
-      v-bind="propValue"
+      v-bind="propsValue"
       :is="layoutComponent"
-      :propsValue="propValue"
+      :propsValue="propsValue"
       :individual_name="individual_name"
       :company_name="company_name"
       :download="vCardDownload"
+      :save="vCardSave"
     />
   </q-page>
 </template>
 
 <script setup>
 import {useLayout} from "src/composables/layout.js";
-import {computed, defineAsyncComponent} from "vue";
+import {computed, defineAsyncComponent, provide} from "vue";
 import {useProperty} from "src/composables/property.js";
 import {useCompany} from "src/composables/company.js";
 import {useIndividual} from "src/composables/individual.js";
@@ -25,13 +26,18 @@ const layoutComponent = computed(() => defineAsyncComponent(() => import(`compon
 
 const cProps = computed(() => company.properties.value)
 const iProps = computed(() => individual.properties.value)
-const propValue = computed(() => property.propertyValue(cProps.value,iProps.value))
+const propsValue = computed(() => property.propertyValue(cProps.value,iProps.value))
 
 const individual_name = computed(() => individual.full_name.value)
 const company_name = computed(() => company.company_name.value)
 
 function vCardDownload(){
-  const vCard = new vCardsJs(properties_vcard.value,propValue.value,individual_name.value,company_name.value)
+  const vCard = new vCardsJs(properties_vcard.value,propsValue.value,individual_name.value,company_name.value)
   vCard.download();
 }
+function vCardSave(){
+  const vCard = new vCardsJs(properties_vcard.value,propsValue.value,individual_name.value,company_name.value)
+  vCard.save();
+}
+provide('propsValue',propsValue)
 </script>

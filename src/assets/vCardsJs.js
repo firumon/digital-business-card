@@ -1,4 +1,5 @@
 import vCardsLib from "vcards-js"
+import {openURL} from "quasar";
 
 function e(value) {
   if (value) {
@@ -138,7 +139,7 @@ class vCardsJs {
   }
 
   save(){
-    this.vCards.saveToFile(this.individual_name + '.vcf')
+    openURL("data:text/vcard;charset=utf-8," + encodeURI(this.getFormattedString()));
   }
 }
 

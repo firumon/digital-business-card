@@ -12,9 +12,8 @@
 import {openURL} from "quasar";
 import {computed} from "vue";
 import * as ImageUrl from "assets/image_uri.js";
-import * as SocialUrl from "assets/social_url.js";
 
-const props = defineProps(['contact','value'])
+const props = defineProps(['name','value'])
 
 const IconLabelAction = computed(function(){
   if(!props.value) return null;
@@ -24,12 +23,15 @@ const IconLabelAction = computed(function(){
     email_address: { icon:'alternate_email',label:props.value,action:'mailto:'+props.value },
     website: { icon:'link',label:props.value,action:props.value },
     whatsapp: { image:ImageUrl.whatsapp, label:'WhatsApp',action:'https://wa.me/' + props.value + '?text=Hello' },
-    instagram: { image:ImageUrl.instagram,label:SocialUrl.instagramLabel(props.value),action: SocialUrl.instagram(props.value) },
-    facebook: { image:ImageUrl.facebook,label:'Facebook',action: SocialUrl.facebook(props.value) },
-    linkedin: { image:ImageUrl.linkedin,label:'Linkedin',action: SocialUrl.linkedin(props.value) },
-    messenger: { image:ImageUrl.messenger,label:'Messenger',action:'https://m.me/' + props.value + '?text=Hello' },
+    instagram: { image:ImageUrl.instagram,label:instagramLabel(props.value),action: props.value },
+    facebook: { image:ImageUrl.facebook,label:'Facebook',action: props.value },
+    linkedin: { image:ImageUrl.linkedin,label:'Linkedin',action: props.value },
+    messenger: { image:ImageUrl.messenger,label:'Messenger',action:props.value + '?text=Hello' },
   }
-  return rule[props.contact];
+  return rule[props.name];
 })
 
+function instagramLabel(url){
+  return '@' + String(url).replace(/\/$/,"").split("/").pop()
+}
 </script>

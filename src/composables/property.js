@@ -29,7 +29,7 @@ export function useProperty(){
     for (const lPropKey of lPropsKeys) {
       if(iProps.hasOwnProperty(lPropKey)) propValue[lPropKey] = iProps[lPropKey];
       else if(cProps.hasOwnProperty(lPropKey)) propValue[lPropKey] = cProps[lPropKey];
-      else companyProps[lPropKey] = lProps[lPropKey].property.value
+      else propValue[lPropKey] = lProps[lPropKey].property.value
     }
     return propValue;
   }
