@@ -19,13 +19,13 @@
         </div>
         <div class="q-pa-sm text-bold bg-grey-2">Brand Color (Hexa code, ex: #FFFFFF)</div>
         <div class="row q-col-gutter-x-xs">
-          <div class="col-6"><q-input v-model="newCompany.brand_primary" outlined label="Primary Color" /></div>
-          <div class="col-6"><q-input v-model="newCompany.brand_secondary" outlined label="Secondary Color" /></div>
+          <div class="col-6"><q-input v-model="newCompany.brand_primary" outlined label="Primary Brand Color (Hexa Value)" /></div>
+          <div class="col-6"><q-input v-model="newCompany.brand_secondary" outlined label="Secondary Brand Color (Hexa Value)" /></div>
         </div>
         <div class="q-pa-sm text-bold bg-grey-2">Font Color (Hexa code, ex: #FFFFFF)</div>
         <div class="row q-col-gutter-x-xs">
-          <div class="col-6"><q-input v-model="newCompany.color_primary" outlined label="Primary Color" /></div>
-          <div class="col-6"><q-input v-model="newCompany.color_secondary" outlined label="Secondary Color" /></div>
+          <div class="col-6"><q-input v-model="newCompany.color_primary" outlined label="Primary Color (Hexa Value)" /></div>
+          <div class="col-6"><q-input v-model="newCompany.color_secondary" outlined label="Secondary Color (Hexa Value)" /></div>
         </div>
         <div class="q-pa-sm text-bold bg-grey-2">Font Name (Google font name)</div>
         <div class="row q-col-gutter-x-xs">

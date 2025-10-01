@@ -4,7 +4,7 @@
     <Profile v-bind="propsValue" :individual_name="individual_name" />
     <Download :download="download" />
     <Contacts v-bind="propsValue" :propsValue="propsValue" :style="invert_style" />
-    <CompanyButtons :color="primary_color" />
+    <CompanyButtons :color="color_primary" />
   </div>
 </template>
 
@@ -13,18 +13,16 @@ import CompanyLogo from "components/Cards/EliteCard/CompanyLogo.vue";
 import Profile from "components/Cards/EliteCard/Profile.vue";
 import Download from "components/Cards/EliteCard/Download.vue";
 import Contacts from "components/Cards/EliteCard/Contacts.vue";
-import {useCompany} from "src/composables/company.js";
-import { getCssVar,colors } from "quasar";
+import { colors } from "quasar";
 import {computed} from "vue";
 import CompanyButtons from "components/Cards/EliteCard/CompanyButtons.vue";
+import {useColor} from "src/composables/color.js";
 
-const { brand_primary,color_primary } = useCompany(), { hexToRgb } = colors
+const { brand_primary,color_primary } = useColor(), { hexToRgb } = colors
 const props = defineProps(['propsValue','background_image','individual_name','download'])
-const primary_brand = brand_primary || getCssVar("primary")
-const primary_color = color_primary || "#000000"
 
-const rgba = computed(() => Object.values(hexToRgb(primary_brand)).join(',') + ',0.60')
-const invert_style = computed(() => 'background-color: ' + primary_color + '; color: ' + primary_brand)
+const rgba = computed(() => Object.values(hexToRgb(brand_primary.value)).join(',') + ',0.60')
+const invert_style = computed(() => 'background-color: ' + color_primary.value + '; color: ' + brand_primary.value)
 const background_image = computed(() => 'linear-gradient(rgba('+rgba.value+'), rgba('+rgba.value+')), url("'+props.background_image+'")')
 </script>
 

@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import TopCurve from "components/ProCard/TopCurve.vue";
+import TopCurve from "components/Cards/ProCard/TopCurve.vue";
 import BottomCurve from "components/ProCard/BottomCurve.vue";
 import CompanyLogo from "components/ProCard/CompanyLogo.vue";
 import Profile from "components/ProCard/Profile.vue";

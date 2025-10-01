@@ -13,9 +13,9 @@
       <p class="text-lowercase text-subtitle1">{{ website }}</p>
       <div class="bg-primary q-py-md flex flex-center">
         <div class="q-gutter-x-lg">
-          <q-btn icon="img:/assets/icons/PNG/Black/Youtube_black.png" round size="lg" color="white" text-color="primary" unelevated :href="youtube" target="_blank" />
-          <q-btn icon="img:/assets/icons/PNG/Black/Facebook_black.png" round size="lg" color="white" text-color="primary" unelevated :href="facebook" target="_blank" />
-          <q-btn icon="img:/assets/icons/PNG/Black/Instagram_black.png" round size="lg" color="white" text-color="primary" unelevated :href="instagram" target="_blank" />
+          <q-btn :icon="iconSrc('Youtube')" round size="lg" color="white" :text-color="color_primary" unelevated :href="youtube" target="_blank" />
+          <q-btn :icon="iconSrc('Facebook')" round size="lg" color="white" :text-color="color_primary" unelevated :href="facebook" target="_blank" />
+          <q-btn :icon="iconSrc('Instagram')" round size="lg" color="white" :text-color="color_primary" unelevated :href="instagram" target="_blank" />
         </div>
       </div>
       <p class="text-uppercase text-subtitle1 q-mt-md">{{ company_name }}</p>
@@ -25,12 +25,19 @@
 
 <script setup>
 import {computed} from "vue";
+import {useColor} from "src/composables/color.js";
+
+let { color_primary } = useColor()
 
 const props = defineProps(['company_name','individual_name','profile_photo','designation','company_address','email','website','avatar_span_width','cover_photo','youtube','instagram','facebook','download'])
 
 const imageSize = computed(() => props.avatar_span_width + "vw")
 const cover_photo = computed(() => "url('" + props.cover_photo + "')")
 const cover_photo_position = computed(() => "0vw " + (parseFloat(props.avatar_span_width)/2) + "vw")
+
+function iconSrc(name){
+  return (color_primary.value === "#FFFFFF") ? "img:/assets/icons/PNG/Black/"+name+"_black.png" : (color_primary.value === "#000000" ? ("img:/assets/icons/PNG/White/"+name+"_white.png") : ("img:/assets/icons/PNG/Color/"+name+".png"))
+}
 </script>
 
 <style>

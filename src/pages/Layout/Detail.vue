@@ -6,6 +6,10 @@
       <q-input v-model="updates.description" outlined label="Detail Description" type="textarea" />
       <q-input v-model="updates.font_primary" outlined label="Primary Font - Google Font Name" />
       <q-input v-model="updates.font_secondary" outlined label="Secondary Font - Google Font Name" />
+      <q-input v-model="updates.brand_primary" outlined label="Primary Brand Color (Hexa Value)" />
+      <q-input v-model="updates.brand_secondary" outlined label="Secondary Brand Color (Hexa Value)" />
+      <q-input v-model="updates.color_primary" outlined label="Primary Color (Hexa Value)" />
+      <q-input v-model="updates.color_secondary" outlined label="Secondary Color (Hexa Value)" />
       <q-btn class="full-width" color="primary" padding="md" size="md" label="Update Layout Details" @click="updateLayout" />
     </div>
     <UsersList :layout_id="id" />
@@ -27,7 +31,7 @@ const layoutStore = useLayoutStore()
 const loading = ref(false)
 const props = defineProps(['id'])
 
-const updates = reactive({ image:null,name:null,description:null,font_primary:null,font_secondary:null })
+const updates = reactive({ image:null,name:null,description:null,font_primary:null,font_secondary:null,brand_primary:null,brand_secondary:null,color_primary:null,color_secondary:null })
 const Layout = computed(() => layoutStore.LayoutsById[props.id])
 
 onMounted(function (){ map(updates,(val,key) => updates[key] = Layout.value ?. [key] || null) })

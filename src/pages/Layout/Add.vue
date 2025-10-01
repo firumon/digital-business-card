@@ -11,6 +11,10 @@
             <q-input v-model="layout.description" label="Detailed Description" outlined type="textarea" />
             <q-input v-model="layout.font_primary" label="Primary Font - (Google Font Name)" outlined />
             <q-input v-model="layout.font_secondary" label="Secondary Font - (Google Font Name)" outlined />
+            <q-input v-model="layout.brand_primary" outlined label="Primary Brand Color (Hexa Value)" />
+            <q-input v-model="layout.brand_secondary" outlined label="Secondary Brand Color (Hexa Value)" />
+            <q-input v-model="layout.color_primary" outlined label="Primary Color (Hexa Value)" />
+            <q-input v-model="layout.color_secondary" outlined label="Secondary Color (Hexa Value)" />
           </div>
         </div>
       </q-card-section>
@@ -29,7 +33,7 @@ import {useLayoutStore} from "stores/layout.js";
 import {map} from "lodash";
 
 const loading = ref(false)
-const layout = reactive({ image:null,name:null,description:null,font_primary:null,font_secondary:null })
+const layout = reactive({ image:null,name:null,description:null,font_primary:null,font_secondary:null,brand_primary:null,brand_secondary:null,color_primary:null,color_secondary:null })
 
 const layoutStore = useLayoutStore()
 function saveLayout(){

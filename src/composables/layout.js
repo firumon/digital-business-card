@@ -19,6 +19,6 @@ _Layout.properties.map(function({ type,name }){
 })
 
 export function useLayout(){
-  const { name } = _Layout
-  return { name,properties_vcard,properties_layout,index }
+  const { name,brand_primary,brand_secondary,color_primary,color_secondary } = _Layout
+  return { name,brand_primary,brand_secondary,color_primary,color_secondary,properties_vcard,properties_layout,index }
 }

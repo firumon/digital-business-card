@@ -6,12 +6,10 @@
 
 <script setup>
 import {computed} from "vue";
-import {useCompany} from "src/composables/company.js";
-import {getCssVar} from "quasar";
+import {useColor} from "src/composables/color.js";
 
 defineProps(['download'])
 
-const { brand_primary,color_primary } = useCompany()
-const primary_brand = brand_primary || getCssVar("primary"), primary_color = color_primary || "#000000"
-const style = computed(() => 'background-color: ' + primary_brand + '; color: ' + primary_color + '; border: 1px solid ' + primary_color)
+const { brand_primary,color_primary } = useColor()
+const style = computed(() => 'background-color: ' + brand_primary.value + '; color: ' + color_primary.value + '; border: 1px solid ' + color_primary.value)
 </script>
